@@ -100,7 +100,7 @@ class SliderMenu extends Component {
     }
     getData = () => {
         
-        axios.get('https://frontend-intervieww.herokuapp.com/users')
+        axios.get('https://fullstack-app-office.herokuapp.com/users')
         .then(res => {
             this.setState({
                 allUsers: res.data

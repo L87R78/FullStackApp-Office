@@ -29,7 +29,7 @@ class MyAnswers extends Component {
                         el.myOrders.push({ beer: 1 })
                     }
                     el.money -= 10;
-                    axios.post(`https://frontend-intervieww.herokuapp.com/users/update/${el._id}`, el)
+                    axios.post(`https://fullstack-app-office.herokuapp.com/users/update/${el._id}`, el)
                         .then(res => {
                         })
                         .catch(err => console.log(err))
@@ -54,7 +54,7 @@ class MyAnswers extends Component {
                         el.myOrders.push({ coffe: 1 })
                     }
                     el.money -= 6;
-                    axios.post(`https://frontend-intervieww.herokuapp.com/users/update/${el._id}`, el)
+                    axios.post(`https://fullstack-app-office.herokuapp.com/users/update/${el._id}`, el)
                         .then(res => {
                         })
                         .catch(err => console.log(err))
@@ -72,7 +72,7 @@ class MyAnswers extends Component {
         }, 5100)
     }
     componentDidMount() {
-        axios.get('https://frontend-intervieww.herokuapp.com/users')
+        axios.get('https://fullstack-app-office.herokuapp.com/users')
             .then(res => {
                 this.setState({
                     allUsers: res.data

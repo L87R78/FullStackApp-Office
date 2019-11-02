@@ -49,7 +49,7 @@ class MenuNav extends Component {
                 if (isCheckUserName) {
                     tempCurUser.username = this.state.newUser
                     localStorage.setItem('currentUser', tempCurUser.username);
-                    axios.post(`https://frontend-intervieww.herokuapp.com/users/update/${tempCurUser._id}`, tempCurUser)
+                    axios.post(`https://fullstack-app-office.herokuapp.com/users/update/${tempCurUser._id}`, tempCurUser)
                         .then(res => {
 
                         })
@@ -97,7 +97,7 @@ class MenuNav extends Component {
             if (isCheckUserPassword) {
                 tempCurUser.password = this.state.newPassword + localStorage.getItem('currentUser')
                 localStorage.setItem('currentUser', tempCurUser.username);
-                axios.post(`https://frontend-intervieww.herokuapp.com/users/update/${tempCurUser._id}`, tempCurUser)
+                axios.post(`https://fullstack-app-office.herokuapp.com/users/update/${tempCurUser._id}`, tempCurUser)
                     .then(res => {
 
                     })
@@ -131,7 +131,7 @@ class MenuNav extends Component {
         })
     }
     getData = () => {
-        axios.get('https://frontend-intervieww.herokuapp.com/users')
+        axios.get('https://fullstack-app-office.herokuapp.com/users')
             .then(res => {
                 //console.log(res.data)
                 this.setState({
@@ -233,7 +233,7 @@ class MenuNav extends Component {
                 feedback: this.state.sendFeedBackMessage,
             }
 
-            axios.post('https://frontend-intervieww.herokuapp.com/feedback/add', feedback)
+            axios.post('https://fullstack-app-office.herokuapp.com/feedback/add', feedback)
                 .then(res => {
                     this.setState({
                         successFeedback: 'show'

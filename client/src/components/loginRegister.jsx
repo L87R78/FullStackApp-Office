@@ -76,7 +76,7 @@ class LoginRegister extends Component {
                         }
                         console.log(user)
                         localStorage.setItem('currentUser', this.state.user);
-                        axios.post('https://frontend-intervieww.herokuapp.com/users/update/' + el._id, user)
+                        axios.post('https://fullstack-app-office.herokuapp.com/users/update/' + el._id, user)
                             .then(res => {
                                 
                             })
@@ -131,7 +131,7 @@ class LoginRegister extends Component {
                 }
               
                 localStorage.setItem('currentUser', this.state.user);
-                axios.post('https://frontend-intervieww.herokuapp.com/users/add', user)
+                axios.post('https://fullstack-app-office.herokuapp.com/users/add', user)
                     .then(res => {
                         //res.json('User updated!')
                        
@@ -165,7 +165,7 @@ class LoginRegister extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://frontend-intervieww.herokuapp.com/users')
+        axios.get('https://fullstack-app-office.herokuapp.com/users')
             .then(res => {
                 this.setState({
                     allUsers: res.data

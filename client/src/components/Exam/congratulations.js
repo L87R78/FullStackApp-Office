@@ -31,7 +31,7 @@ class Congratulations extends Component {
                 clickedSendFeedBak: true
             })
 
-            axios.post('https://frontend-intervieww.herokuapp.com/feedback/add', feedback)
+            axios.post('https://fullstack-app-office.herokuapp.com/feedback/add', feedback)
                 .then(res => {
                     console.log(res.status)
                 })

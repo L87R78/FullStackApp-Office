@@ -79,7 +79,7 @@ class Exam extends Component {
         localStorage.clear();
     }
     componentDidMount() {
-        axios.get('https://frontend-intervieww.herokuapp.com/users')
+        axios.get('https://fullstack-app-office.herokuapp.com/users')
             .then(res => {
                 res.data.map(el => {
                     if (el.username === window.localStorage.currentUser) {
@@ -106,7 +106,7 @@ class Exam extends Component {
         curUser.countCorrectAnswers = this.state.correctAnswers
         curUser.stepQuastion = this.state.stepQuastion
 
-        axios.post('https://frontend-intervieww.herokuapp.com/users/update/' + curUser._id, curUser)
+        axios.post('https://fullstack-app-office.herokuapp.com/users/update/' + curUser._id, curUser)
             .then(res => {
                 // console.log(res.status)
             })
