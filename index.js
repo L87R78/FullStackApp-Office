@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
-    process.env.MONGODB_URI || "https://frontend-intervieww.herokuapp.com",
+    process.env.MONGODB_URI || "https://fullstack-app-office.herokuapp.com",
     {
         useMongoClient: true
     }, () => console.log('Database connected!')
@@ -20,7 +20,6 @@ const registerUser = require('./routes/registerUser');
 const feedBack = require('./routes/feedback');
 app.use('/users', registerUser);
 app.use('/feedback', feedBack);
-
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
