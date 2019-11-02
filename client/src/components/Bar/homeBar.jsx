@@ -284,7 +284,6 @@ class HomeBar extends Component {
                                                         <MyAnswers
                                                             currentChoice={currentChoice}
                                                             handleCurChoice={this.handleCurChoice}
-
                                                         />
                                                     </div>
 

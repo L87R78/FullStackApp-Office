@@ -20,7 +20,6 @@ class Home extends Component {
                 .bind(this),
             3000
         );
-
     }
 
     logOut = () => {
@@ -54,7 +53,6 @@ class Home extends Component {
                         </div>
                         : null
                 }
-
                 {
                     this.state.questionDrink
                         ? <div className="question_something">

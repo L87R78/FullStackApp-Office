@@ -32,7 +32,7 @@ class Home extends Component {
         }
     }
     handleCurChoice = (e) => {
-  
+
         if (typeof (e) === 'string') {
             if (e === 'yes') {
                 this.setState({
@@ -126,9 +126,9 @@ class Home extends Component {
                                 </div>
                                 <div className="bottons_home_home">
                                     <Link to="/bar" className={"link_Bar " + btnBar + ' ' + freezeController + ' ' + showPulseEffect}>Bar</Link>
-                                    <Link to="#" className={"link_library " + btnLibrary + ' ' + freezeController + ' ' + showPulseEffect}>Library</Link>
-                                    <Link to="#" className={"link_exam " + btnExam + ' ' + freezeController + ' ' + showPulseEffect}>Exam</Link>
-                                    <Link to="#" className={"link_game " + btnGame + ' ' + freezeController + ' ' + showPulseEffect}>Game</Link>
+                                    <Link to="/library" className={"link_library " + btnLibrary + ' ' + freezeController + ' ' + showPulseEffect}>Library</Link>
+                                    <Link to="#" className={"link_exam " + btnExam + ' ' + freezeController + ' ' + showPulseEffect}> <i class="fas fa-lock"></i> Exam</Link>
+                                    <Link to="#" className={"link_game " + btnGame + ' ' + freezeController + ' ' + showPulseEffect}> <i class="fas fa-lock"></i> Game</Link>
                                 </div>
                                 {
                                     this.state.isShowHome
@@ -143,7 +143,7 @@ class Home extends Component {
                                                         <div className="box_question_child"></div>
 
                                                         <span>Pavel <i className="far fa-comment-dots"></i></span>
-               
+
                                                         <div className="people_question">
                                                             {textPavel}
                                                         </div>
@@ -191,7 +191,7 @@ class Home extends Component {
                                                             <Link to="/bar" className="box_btn_home" onMouseOver={() => this.setState({ btnBar: 'show' })} onMouseOut={() => this.setState({ btnBar: 'hide' })}>
                                                                 Bar
                                                             </Link>
-                                                            <Link className="box_btn_home" onMouseOver={() => this.setState({ btnLibrary: 'show' })} onMouseOut={() => this.setState({ btnLibrary: 'hide' })}>
+                                                            <Link to="/library" className="box_btn_home" onMouseOver={() => this.setState({ btnLibrary: 'show' })} onMouseOut={() => this.setState({ btnLibrary: 'hide' })}>
                                                                 Library
                                                             </Link>
 
@@ -242,7 +242,7 @@ class Home extends Component {
                                                             <Link to="/bar" className="box_btn_home" onMouseOver={() => this.setState({ btnBar: 'show' })} onMouseOut={() => this.setState({ btnBar: 'hide' })}>
                                                                 Bar
                                                             </Link>
-                                                            <Link className="box_btn_home" onMouseOver={() => this.setState({ btnLibrary: 'show' })} onMouseOut={() => this.setState({ btnLibrary: 'hide' })}>
+                                                            <Link to="/library" className="box_btn_home" onMouseOver={() => this.setState({ btnLibrary: 'show' })} onMouseOut={() => this.setState({ btnLibrary: 'hide' })}>
                                                                 Library
                                                             </Link>
 
