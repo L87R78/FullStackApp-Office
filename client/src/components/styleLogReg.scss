@@ -1,0 +1,59 @@
+.login_register_form {
+  position: absolute;
+  background: url("../Images/login_register_image.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  .error_box {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin: 25vh auto;
+    color: red;
+    .error_message_log_reg {
+      @include fadeInEffect();
+      .hide {
+        display: none;
+      }
+    }
+  }
+}
+
+.form_box_loginReg {
+  width: 300px;
+  margin: 30vh auto;
+  span {
+    display: block;
+    text-align: center;
+  }
+
+  form {
+    input {
+      width: 300px;
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  .loginRegisterBtn {
+    background: rgba(0, 128, 0, 0.685);
+    text-decoration: none;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding: 5px;
+    border-radius: 4px;
+    color: white;
+  }
+  .loginRegisterBtnForm {
+    background: rgba(105, 100, 100, 0.596);
+    text-decoration: none;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding: 5px;
+    border-radius: 4px;
+    color: white;
+  }
+}

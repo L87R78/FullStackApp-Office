@@ -1,0 +1,346 @@
+//mixin homePage
+@mixin fideInSlowly {
+  animation: fadein 1s;
+  -moz-animation: fadein 1s; /* Firefox */
+  -webkit-animation: fadein 1s; /* Safari and Chrome */
+  -o-animation: fadein 1s; /* Opera */
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes fadein {
+    /* Firefox */
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadein {
+    /* Safari and Chrome */
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes fadein {
+    /* Opera */
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+@mixin bottomHome {
+  background: rgb(119, 118, 118);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  &.startPulse {
+    @include pulseButton();
+  }
+  
+  &.onFreeze {
+    z-index: -1;
+  }
+  &.stopFreeze {
+    z-index: 0;
+  }
+  @include fideInSlowly();
+  
+  &.show {
+    background: olivedrab;
+    color: white;
+    
+  }
+  &:hover {
+    background: olivedrab;
+    color: white;
+  }
+}
+@mixin pulseButton {
+  @keyframes shadow-pulse {
+    0% {
+      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 35px rgba(0, 0, 0, 0);
+    }
+  }
+
+  @keyframes shadow-pulse-big {
+    0% {
+      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+      box-shadow: 0 0 0 70px rgba(0, 0, 0, 0);
+    }
+  }
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  animation: shadow-pulse 2s infinite;
+
+  &.show {
+    background: olivedrab;
+    color: white;
+  }
+  &:hover {
+    background: olivedrab;
+    color: white;
+  }
+}
+//end mixin homePage
+
+
+
+//mixin barPage
+@mixin notificationDrink {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  border-radius: 50%;
+  height: 400px;
+  width: 400px;
+  margin: -100px 0 0 -200px;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+
+  transform: translate3d(500%, 0 , 0);
+
+  &.show {
+    transition: all 1.5s ease-out;
+    transform: translate3d(0, 0, 0);
+  }
+  &.hide {
+    transition: all 1s ease-out;
+    transform: translate3d(500%, 0, 0);
+  } 
+}
+// end mixin barPage
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
+@mixin fadeInEffect {
+  animation: 0.5s fadeIn;
+  animation-fill-mode: forwards;
+  //visibility: hidden;
+  .ele:hover {
+    background-color: #123;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+@mixin button_effect {
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  text-align: center;
+
+  .underlined-button {
+    text-decoration: none;
+    color: aqua;
+    padding-bottom: 0.15em;
+    box-sizing: border-box;
+    box-shadow: inset 0 -0.2em 0 green;
+    transition: 0.2s;
+
+    &:hover {
+      color: #222;
+      box-shadow: inset 0 -2em 0 green;
+      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+  }
+
+  .readyBtn {
+    cursor: pointer;
+    position: relative;
+    background: none;
+    color: rgb(91, 243, 91);
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 0.2em solid white;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 10%;
+      background: #222;
+      height: 0.3em;
+      right: 20%;
+      top: -0.21em;
+      transform: skewX(-45deg);
+      -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 10%;
+      background: #222;
+      height: 0.3em;
+      left: 20%;
+      bottom: -0.25em;
+      transform: skewX(45deg);
+      -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
+      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+    &:hover {
+      &::before {
+        right: 80%;
+      }
+      &::after {
+        left: 80%;
+      }
+    }
+  }
+}
+@mixin hideEffect {
+  -webkit-transition: all 10s;
+  -moz-transition: all 10s;
+  -o-transition: all 10s;
+  transition: all 10s;  
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1.3);
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+//mixin exam page
+@mixin correctAnswer {
+  -webkit-animation: seconds 1s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 2s;
+  animation: seconds 1s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  background: white;
+  border-radius: 5px;
+  color: green;
+  font-weight: bold;
+
+  @-webkit-keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+@mixin NoCorrectAnswer {
+  position: absolute;
+  -webkit-animation: seconds 1s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 2s;
+  animation: seconds 1s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  background: white;
+  border-radius: 5px;
+  color: red;
+  font-weight: bold;
+
+  @-webkit-keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+@mixin select_one {
+  position: absolute;
+  -webkit-animation: seconds 1s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 2s;
+  animation: seconds 1s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  background: white;
+  border-radius: 5px;
+  color: orange;
+  font-weight: bold;
+
+  @-webkit-keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+//end mixin exam page
