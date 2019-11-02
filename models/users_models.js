@@ -39,6 +39,5 @@ const registerUserSchema= new Schema ({
 }, {
     timesTamps: true,
 })
-
 const registerUser = mongoose.model('regUsers', registerUserSchema);
 module.exports = registerUser;
