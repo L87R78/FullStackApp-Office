@@ -77,13 +77,9 @@ class HomeBar extends Component {
     componentDidMount() {
         setTimeout(() => {
             this.setState({
+                isShowHome: true,
                 leftDoor: 'show',
                 rightDoor: 'show',
-            })
-        }, 1500)
-        setTimeout(() => {
-            this.setState({
-                isShowHome: true,
             })
         }, 1500)
         setTimeout(() => {
@@ -134,10 +130,8 @@ class HomeBar extends Component {
 
         return (
             <div className="bar_home">
-                <div className={left_side_door + ' ' + leftDoor}>
-                </div>
-                <div className={right_side_door + ' ' + rightDoor}>
-                </div>
+                <div className={left_side_door + ' ' + leftDoor}></div>
+                <div className={right_side_door + ' ' + rightDoor}></div>
                 {
                     drinkBeer === "drinkBeer" && this.state.showDrinkBox === 'show'
                         ? <div className={"notification_price " + this.state.showDrinkBox}> <span>-10$</span> </div>

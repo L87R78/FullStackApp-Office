@@ -1,8 +1,11 @@
 @import "./mixins.scss";
+
 @import "./components/styleLogReg.scss";
 @import "./components/Exam/styleExam.scss";
 @import "./components/Bar/styleBarPage.scss";
 @import "./components/Library/styleLibraryPage.scss";
+
+
 
 body {
   padding: 0;

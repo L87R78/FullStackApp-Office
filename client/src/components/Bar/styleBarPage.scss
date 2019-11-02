@@ -29,7 +29,6 @@
       }
       transition: all 0.5s ease-out;
     }
-
     .drinkBeer {
       background: url("../../Images/drinkBeer.jpg");
       @include notificationDrink();

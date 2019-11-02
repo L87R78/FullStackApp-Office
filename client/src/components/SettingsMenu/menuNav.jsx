@@ -35,7 +35,6 @@ class MenuNav extends Component {
         })
     }
     handleChangeUser = () => {
-        console.log('handleChangeUser')
         if (this.state.newUser !== '' && this.state.curUser !== '') {
             if (this.state.curUser === localStorage.getItem('currentUser')) {
                 let tempCurUser = {};
@@ -113,7 +112,6 @@ class MenuNav extends Component {
                 })
             }
         } else {
-            console.log('empty')
             this.setState({
                 errorEmptyInputsPassword: 'show'
             })
@@ -195,7 +193,7 @@ class MenuNav extends Component {
                     sendFeedBackMessage: 'Please write here'
                 })
 
-            }, 3000)
+            }, 2000)
         }
     }
     componentWillUpdate(nextProps) {
