@@ -97,24 +97,18 @@ class LoginRegister extends Component {
             showHideErrMessage: 'show'
         })
         localStorage.clear();
-       
-        
         let checkUser = false;
-      //  console.log(this.state.user)
         this.state.allUsers.map(el => {
-           // console.log(el)
             if (el.username === this.state.user) {
                 checkUser = true
             }
         })
-        //console.log(checkUser)
         if (checkUser === false) {
             if (this.state.user === '' || this.state.password === '') {
                 this.setState({
                     errorRegisterUser: 'You must fill in all of the fields!'
                 })
             }
-        
             else {
                 this.setState({
                     errorRegisterUser: '',
@@ -133,8 +127,6 @@ class LoginRegister extends Component {
                 localStorage.setItem('currentUser', this.state.user);
                 axios.post('https://fullstack-app-office.herokuapp.com/users/add', user)
                     .then(res => {
-                        //res.json('User updated!')
-                       
                     })
                     .catch(err => console.log('Error on Redister User ' + err))
             }

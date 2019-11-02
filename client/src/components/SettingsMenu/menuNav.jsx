@@ -35,26 +35,24 @@ class MenuNav extends Component {
         })
     }
     handleChangeUser = () => {
+        console.log('handleChangeUser')
         if (this.state.newUser !== '' && this.state.curUser !== '') {
             if (this.state.curUser === localStorage.getItem('currentUser')) {
                 let tempCurUser = {};
-                let isCheckUserName = false;
                 this.state.allUsers.map(el => {
                     if (el.username === this.state.curUser) {
                         tempCurUser = el;
-                        isCheckUserName = true
+                        var getPassword = el.password.replace(this.state.curUser, '');
 
+                        tempCurUser.username = this.state.newUser
+                        tempCurUser.password = getPassword + this.state.newUser
+                        localStorage.setItem('currentUser', tempCurUser.username);
+                        axios.post(`https://fullstack-app-office.herokuapp.com/users/update/${tempCurUser._id}`, tempCurUser)
+                            .then(res => {
+                            })
+                            .catch(err => console.log(err))
                     }
                 })
-                if (isCheckUserName) {
-                    tempCurUser.username = this.state.newUser
-                    localStorage.setItem('currentUser', tempCurUser.username);
-                    axios.post(`https://fullstack-app-office.herokuapp.com/users/update/${tempCurUser._id}`, tempCurUser)
-                        .then(res => {
-
-                        })
-                        .catch(err => console.log(err))
-                }
                 this.setState({
                     curUser: '',
                     newUser: '',
@@ -95,8 +93,8 @@ class MenuNav extends Component {
             })
 
             if (isCheckUserPassword) {
-                tempCurUser.password = this.state.newPassword + localStorage.getItem('currentUser')
                 localStorage.setItem('currentUser', tempCurUser.username);
+                tempCurUser.password = this.state.newPassword + localStorage.getItem('currentUser')
                 axios.post(`https://fullstack-app-office.herokuapp.com/users/update/${tempCurUser._id}`, tempCurUser)
                     .then(res => {
 
@@ -115,11 +113,11 @@ class MenuNav extends Component {
                 })
             }
         } else {
+            console.log('empty')
             this.setState({
                 errorEmptyInputsPassword: 'show'
             })
         }
-
     }
     handleChangeNameForm = () => {
         this.getData();
@@ -196,7 +194,7 @@ class MenuNav extends Component {
                     successFeedback: 'hide',
                     sendFeedBackMessage: 'Please write here'
                 })
-               
+
             }, 3000)
         }
     }
@@ -227,7 +225,7 @@ class MenuNav extends Component {
     handlerFeedback = () => {
         console.log(this.state.sendFeedBackMessage)
         if (this.state.sendFeedBackMessage !== '' && this.state.sendFeedBackMessage !== 'Please write here' && this.state.sendFeedBackMessage !== 'Feedback is empty!') {
-           
+
             let feedback = {
                 user: localStorage.getItem('currentUser'),
                 feedback: this.state.sendFeedBackMessage,
@@ -240,7 +238,7 @@ class MenuNav extends Component {
                     })
                 })
                 .catch(err => console.log('error feedback ' + err))
-           
+
         } else {
             this.setState({
                 sendFeedBackMessage: 'Feedback is empty!'
@@ -266,28 +264,6 @@ class MenuNav extends Component {
                 {
                     show === 'show'
                         ? <nav className={"menu_nav " + show}>
-                            <li className={"nav_item " + clickedHome} onClick={() => checkClickedLink('home')} >
-                                <div className={"nav_item_child " + clickedHome} onClick={() => this.handleShowChangeForm()}>
-                                    <div>
-                                        <i className="fas fa-cog"></i>
-                                        Home
-                                    </div>
-                                    {
-                                        clickedHome === 'show'
-                                            ? <i className="fas fa-chevron-down"></i>
-                                            : <i className="fas fa-chevron-right"></i>
-                                    }
-                                </div>
-                                {
-                                    clickedHome === 'show'
-                                        ? <div className={"child_info " + 'handleShowChangeForm'}>
-                                            <h2>Homee</h2>
-                                            <h2>Homee</h2>
-                                            <h2>Homee</h2>
-                                        </div>
-                                        : null
-                                }
-                            </li>
                             <li className={"nav_item " + clickedFeedback} onClick={() => { checkClickedLink('about') }}>
                                 <div className={"nav_item_child " + clickedFeedback} onClick={() => this.handleShowChangeForm()}>
                                     <div>
@@ -315,21 +291,15 @@ class MenuNav extends Component {
                                                             {this.timeError()}
                                                             <i class={"fas fa-thumbs-up " + this.state.successFeedback}></i>
                                                         </div>
-                                                        
                                                 }
                                                 <textarea
                                                     className="second_input"
                                                     onChange={this.handleFeedBackMessage}
                                                     type="text"
                                                     placeholder={this.state.sendFeedBackMessage}
-                                                    //placeholder= 'HUI'
+
                                                 />
-
-                                                <div className="box">
-                                                    <button onClick={this.handlerFeedback} className="btn btn-white btn-animation-1"><i class="fas fa-paper-plane"></i></button>
-                                                </div>
-
-
+                                                <button onClick={this.handlerFeedback} className="btn btn-white btn-animation-1"><i class="fas fa-paper-plane"></i></button>
                                             </div>
                                         </div>
                                         : null
@@ -446,7 +416,10 @@ class MenuNav extends Component {
                                                                 label="New username"
                                                             />
                                                         </form>
-                                                        <button onClick={this.handleChangeUser}>Change</button>
+
+                                                        <button onClick={this.handleChangeUser} className="btn btn-white btn-animation-1">Change</button>
+
+                                                        {/* <button onClick={this.handleChangeUser}>Change</button> */}
 
                                                     </div>
                                                     : null
@@ -506,7 +479,8 @@ class MenuNav extends Component {
                                                                 label="New password"
                                                             />
                                                         </form>
-                                                        <button onClick={this.handleChangeUser}>Change</button>
+                                                        
+                                                        <button onClick={this.handleChangePassword} className="btn btn-white btn-animation-1">Change</button>
 
                                                     </div>
                                                     : null
