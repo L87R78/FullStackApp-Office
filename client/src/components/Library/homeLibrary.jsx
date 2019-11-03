@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import SliderMenu from '../SettingsMenu/sliderMenu';
 import MyAnswers from './myAnswers';
 import BookJS from './bookJS';
+import BookReactJS from './bookReactJS'
+import BookCSS from './bookCSS'
 
 class HomeLybrary extends Component {
     state = {
@@ -32,11 +34,11 @@ class HomeLybrary extends Component {
                 booksJS: 'hide',
                 booksCSS: 'hide',
             })
-        } else {
+        } else if(e === 'css') {
             this.setState({
                 booksCSS: 'show',
                 booksJS: 'hide',
-                booksReactJS: 'show',
+                booksReactJS: 'hide',
             })
         }
 
@@ -88,8 +90,7 @@ class HomeLybrary extends Component {
         let left_side_door = 'left_side_door';
         let right_side_door = 'right_side_door';
 
-        let { leftDoor, rightDoor, controller, freezeController, openSliderMenu, notificationController, currentChoice, booksJS, notificationChoiceBook } = this.state;
-        console.log(notificationChoiceBook)
+        let { leftDoor, rightDoor, controller, freezeController, openSliderMenu, notificationController, currentChoice, booksJS, booksReactJS, booksCSS, notificationChoiceBook } = this.state;
         return (
             <div className="library_home">
                 <div className={left_side_door + ' ' + leftDoor}>
@@ -106,10 +107,10 @@ class HomeLybrary extends Component {
                                 notificationChoiceBook === "show"
                                     ? <div className={"notificationChoiceBook_box " + notificationChoiceBook}>
                                         {this.timeNotification()}
-                                        dsdsd
+                                        <span>Choice Book</span>
                                     </div>
                                     : <div className={"notificationChoiceBook_box " + notificationChoiceBook}>
-                                        sdSAASAS
+
                                     </div>
                             }
                             {
@@ -117,6 +118,17 @@ class HomeLybrary extends Component {
                                     ? < BookJS openSliderMenu={openSliderMenu} />
                                     : null
                             }
+                            {
+                                booksReactJS === 'show'
+                                    ? < BookReactJS openSliderMenu={openSliderMenu} />
+                                    : null
+                            }
+                            {
+                                booksCSS === 'show'
+                                    ? < BookCSS openSliderMenu={openSliderMenu} />
+                                    : null
+                            }
+
                             {
                                 this.state.isShowHome
                                     ? <Fragment>

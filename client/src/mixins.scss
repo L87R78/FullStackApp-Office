@@ -50,7 +50,7 @@
   &.startPulse {
     @include pulseButton();
   }
-  
+
   &.onFreeze {
     z-index: -1;
   }
@@ -58,11 +58,10 @@
     z-index: 0;
   }
   @include fideInSlowly();
-  
+
   &.show {
     background: olivedrab;
     color: white;
-    
   }
   &:hover {
     background: olivedrab;
@@ -104,9 +103,7 @@
 }
 //end mixin homePage
 
-
-
-@mixin buttonsSliderMenu{
+@mixin buttonsSliderMenu {
   .btn,
   .btn:visited {
     text-decoration: none;
@@ -177,6 +174,8 @@
       transform: translateY(0);
     }
   }
+  
+ 
 }
 
 //mixin barPage
@@ -193,7 +192,7 @@
   left: 50%;
   z-index: 1;
 
-  transform: translate3d(500%, 0 , 0);
+  transform: translate3d(500%, 0, 0);
 
   &.show {
     transition: all 1.5s ease-out;
@@ -202,21 +201,9 @@
   &.hide {
     transition: all 1s ease-out;
     transform: translate3d(500%, 0, 0);
-  } 
+  }
 }
 // end mixin barPage
-
-
-
-
-
-
-
-
-
-
-
-
 
 @mixin easeOut {
   transition: all 0.5s ease-out;
@@ -310,21 +297,11 @@
   -webkit-transition: all 10s;
   -moz-transition: all 10s;
   -o-transition: all 10s;
-  transition: all 10s;  
+  transition: all 10s;
   -moz-transform: scale(1);
   -webkit-transform: scale(1.3);
   opacity: 0;
 }
-
-
-
-
-
-
-
-
-
-
 
 //mixin exam page
 @mixin correctAnswer {
@@ -417,3 +394,16 @@
   }
 }
 //end mixin exam page
+
+//mixin library page
+@mixin sizingImageBook {
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  left: -32%;
+  top: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+//end mixin library page

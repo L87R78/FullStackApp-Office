@@ -11,7 +11,7 @@ class MyAnswers extends Component {
         }
         return (
             <div className="btn_buy_bar">
-                <button className="readyBtn" onClick={() => handleCurChoice(tempCurChoice)}>Learn</button>
+                <button className="readyBtn" onClick={() => handleCurChoice(tempCurChoice)}>Enter</button>
             </div>
         )
     }

@@ -134,7 +134,7 @@ class HomeBar extends Component {
                 <div className={right_side_door + ' ' + rightDoor}></div>
                 {
                     drinkBeer === "drinkBeer" && this.state.showDrinkBox === 'show'
-                        ? <div className={"notification_price " + this.state.showDrinkBox}> <span>-10$</span> </div>
+                        ? <div className="notification_price"> <span>-10$</span> </div>
                         : null
                 }
                 {
@@ -142,9 +142,6 @@ class HomeBar extends Component {
                         ? <div className={"notification_price " + this.state.showDrinkBox}> <span>-6$</span> </div>
                         : null
                 }
-
-
-
                 {
                     drinkBeer === "drinkBeer" && this.state.showDrinkBox === 'show'
                         ? <div className={"drinkBeer " + this.state.showDrinkBox}>

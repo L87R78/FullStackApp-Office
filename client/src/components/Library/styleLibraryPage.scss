@@ -7,15 +7,31 @@
   width: 100%;
   position: fixed;
   .notificationChoiceBook_box {
-    position: absolute;
     border-radius: 50%;
-    height: 400px;
-    width: 400px;
-    margin: -100px 0 0 -200px;
-    background: white;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
+    height: 200px;
+    width: 200px;
+    background: url("../../Images/book.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 30%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    span {
+      position: absolute;
+      bottom: 70%;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      text-align: center;
+      margin-right: auto;
+      color: white;
+      font-size: 20px;
+    }
 
     //transform: translate3d(500%, 0, 0);
 
@@ -29,20 +45,55 @@
     }
   }
 
-  .book_JS {
+  .book_box {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 470px;
-    height: 60vh;
+    height: auto;
     background: white;
     @include fideInSlowly();
     box-shadow: 1px 1px 9px #727070c0;
     &.show {
       z-index: -1;
     }
-
+    .add_money {
+      background: green;
+      position: absolute;
+      padding: 10px;
+      width: 50px;
+      height: 50px;
+      top: 5%;
+      right: 5%;
+      border-radius: 50%;
+      align-items: center;
+      span {
+        display: block;
+        text-align: center;
+        margin-top: 12px;
+        color: white;
+        font-weight: bold;
+      }
+      @include fideInSlowly();
+    }
+    .select_content {
+      background: orange;
+      position: absolute;
+      padding: 10px;
+      top: 5%;
+      right: 5%;
+      border-radius: 10px;
+      align-items: center;
+      span {
+        display: block;
+        text-align: center;
+        // margin-top: 12px;
+        color: white;
+        font-weight: bold;
+      }
+      @include fideInSlowly();
+    }
     h3 {
       color: black;
       font-family: "Noto Serif", serif;
@@ -68,18 +119,21 @@
           color: #1ba9d8;
         }
       }
+      &:last-child {
+        margin-bottom: 2rem;
+      }
     }
-
-    .box_img {
-      position: absolute;
-      width: 150px;
-      height: 200px;
-      left: -32%;
-      top: 0;
+    .box_img_JS {
       background: url("../../Images/javascript.PNG");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
+      @include sizingImageBook();
+    }
+    .box_img_ReactJS {
+      background: url("../../Images/react.png");
+      @include sizingImageBook();
+    }
+    .box_img_CSS {
+      background: url("../../Images/css.PNG");
+      @include sizingImageBook();
     }
   }
 

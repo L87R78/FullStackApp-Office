@@ -197,7 +197,6 @@ class MenuNav extends Component {
         }
     }
     componentWillUpdate(nextProps) {
-        // console.log(nextProps)
         if (nextProps.currentUser !== '') {
             nextProps.currentUser.myOrders.map(el => {
                 let getKey = Object.keys(el)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class BookJS extends Component {
+class BookReactJS extends Component {
     state = {
         showAddPrice: 'hide'
     }
@@ -9,7 +9,7 @@ class BookJS extends Component {
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
-                'https://eloquentjavascript.net/01_values.html', '_blank'
+                'https://www.freecodecamp.org/news/the-react-handbook-b71c27b0a795/#jsx', '_blank'
             );
         }, 1200)
 
@@ -18,7 +18,7 @@ class BookJS extends Component {
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
-                'https://eloquentjavascript.net/02_program_structure.html', '_blank'
+                'https://www.freecodecamp.org/news/the-react-handbook-b71c27b0a795/#components', '_blank'
             );
         }, 1200)
     }
@@ -26,7 +26,7 @@ class BookJS extends Component {
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
-                'https://eloquentjavascript.net/03_functions.html', '_blank'
+                'https://www.freecodecamp.org/news/the-react-handbook-b71c27b0a795/#state', '_blank'
             );
         }, 1200)
     }
@@ -34,7 +34,7 @@ class BookJS extends Component {
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
-                'https://eloquentjavascript.net/04_data.html', '_blank'
+                'https://www.freecodecamp.org/news/the-react-handbook-b71c27b0a795/#props', '_blank'
             );
         }, 1200)
     }
@@ -42,7 +42,7 @@ class BookJS extends Component {
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
-                'https://eloquentjavascript.net/05_higher_order.html', '_blank'
+                'https://www.freecodecamp.org/news/the-react-handbook-b71c27b0a795/#presentational-vs-container-components', '_blank'
             );
         }, 1200)
     }
@@ -50,7 +50,7 @@ class BookJS extends Component {
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
-                'https://eloquentjavascript.net/06_object.html', '_blank'
+                'https://www.freecodecamp.org/news/the-react-handbook-b71c27b0a795/#lifecycle-events', '_blank'
             );
         }, 1200)
     }
@@ -58,15 +58,7 @@ class BookJS extends Component {
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
-                'https://eloquentjavascript.net/09_regexp.html', '_blank'
-            );
-        }, 1200)
-    }
-    handlerReadContent_08 = () => {
-        this.showNotificationAddPrice();
-        setTimeout(() => {
-            window.open(
-                'https://eloquentjavascript.net/13_browser.html', '_blank'
+                'https://www.freecodecamp.org/news/the-react-handbook-b71c27b0a795/#hooks', '_blank'
             );
         }, 1200)
     }
@@ -82,57 +74,54 @@ class BookJS extends Component {
             })
         }, 1200)
     }
-
     render() {
         let { openSliderMenu } = this.props;
         let { showAddPrice } = this.state;
-
         return (
             <div className={"book_box " + openSliderMenu}>
                 {
                     showAddPrice === 'show'
                         ? <div className="add_money">
                             {this.timeNotifications()}
-                            <span>+10$</span>
+                            <span>+15$</span>
                         </div>
                         : null
                 }
                 <h3>Contents</h3>
-                <div className="box_img_JS"></div>
+                <div className="box_img_ReactJS"></div>
                 <div className="list_boxes">
                     <span>1.</span>
-                    <Link to="#" onClick={this.handlerReadContent_01}>Values, Types, and Operators</Link>
+                    <Link to="#" onClick={this.handlerReadContent_01}>JSX</Link>
                 </div>
                 <div className="list_boxes">
                     <span>2.</span>
-                    <Link to="#" onClick={this.handlerReadContent_02}>Program Structure</Link>
+                    <Link to="#" onClick={this.handlerReadContent_02}>Components</Link>
                 </div>
                 <div className="list_boxes">
                     <span>3.</span>
-                    <Link to="#" onClick={this.handlerReadContent_03}>Functions</Link>
+                    <Link to="#" onClick={this.handlerReadContent_03}>State</Link>
                 </div>
                 <div className="list_boxes">
                     <span>4.</span>
-                    <Link to="#" onClick={this.handlerReadContent_04}>Data Structures: Objects and Arrays</Link>
+                    <Link to="#" onClick={this.handlerReadContent_04}>Props</Link>
                 </div>
                 <div className="list_boxes">
                     <span>5.</span>
-                    <Link to="#" onClick={this.handlerReadContent_05}>Higher-order Functions</Link>
+                    <Link to="#" onClick={this.handlerReadContent_05}>Presentational vs container components</Link>
+
                 </div>
                 <div className="list_boxes">
                     <span>6.</span>
-                    <Link to="#" onClick={this.handlerReadContent_06}>The Secret Life of Objects</Link>
+                    <Link to="#" onClick={this.handlerReadContent_06}>Lifecycle Events</Link>
+
                 </div>
                 <div className="list_boxes">
                     <span>7.</span>
-                    <Link to="#" onClick={this.handlerReadContent_07}>Regular Expressions</Link>
-                </div>
-                <div className="list_boxes">
-                    <span>8.</span>
-                    <Link to="#" onClick={this.handlerReadContent_08}>JavaScript and the Browser</Link>
+                    <Link to="#" onClick={this.handlerReadContent_07}>Hooks</Link>
                 </div>
             </div>
         )
     }
+
 }
-export default BookJS;
+export default BookReactJS;
