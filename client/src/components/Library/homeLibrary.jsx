@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import SliderMenu from '../SettingsMenu/sliderMenu';
 import MyAnswers from './myAnswers';
 import BookJS from './bookJS';
-import BookReactJS from './bookReactJS'
-import BookCSS from './bookCSS'
+import BookReactJS from './bookReactJS';
+import BookCSS from './bookCSS';
 
 class HomeLybrary extends Component {
     state = {

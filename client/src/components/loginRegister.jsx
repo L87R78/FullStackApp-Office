@@ -57,11 +57,7 @@ class LoginRegister extends Component {
                     errorLoginName: 'You must fill in all of the fields!'
                 })
             } else {
-                //console.log(el.username)
-               // console.log(this.state.user)
                 if (el.username === this.state.user) {
-                    console.log(el.username)
-                    console.log(this.state.password)
                     if (el.password === this.state.password + this.state.user) {
                         this.setState({
                             errorLoginName: '',
@@ -74,7 +70,6 @@ class LoginRegister extends Component {
                             countCorrectAnswers: 0,
                             stepQuastion: 1
                         }
-                        console.log(user)
                         localStorage.setItem('currentUser', this.state.user);
                         axios.post('https://fullstack-app-office.herokuapp.com/users/update/' + el._id, user)
                             .then(res => {

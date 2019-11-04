@@ -153,7 +153,6 @@ class MenuNav extends Component {
         })
     }
     handleShowChangeForm = () => {
-        //this.getData();
         this.setState({
             showChangeNameForm: 'hide',
             showChangePasswordForm: 'hide',
@@ -220,7 +219,6 @@ class MenuNav extends Component {
         })
     }
     handlerFeedback = () => {
-        console.log(this.state.sendFeedBackMessage)
         if (this.state.sendFeedBackMessage !== '' && this.state.sendFeedBackMessage !== 'Please write here' && this.state.sendFeedBackMessage !== 'Feedback is empty!') {
 
             let feedback = {
@@ -415,9 +413,6 @@ class MenuNav extends Component {
                                                         </form>
 
                                                         <button onClick={this.handleChangeUser} className="btn btn-white btn-animation-1">Change</button>
-
-                                                        {/* <button onClick={this.handleChangeUser}>Change</button> */}
-
                                                     </div>
                                                     : null
                                             }
@@ -478,11 +473,9 @@ class MenuNav extends Component {
                                                         </form>
                                                         
                                                         <button onClick={this.handleChangePassword} className="btn btn-white btn-animation-1">Change</button>
-
                                                     </div>
                                                     : null
                                             }
-
                                         </div>
                                         : null
                                 }

@@ -258,7 +258,6 @@ class Home extends Component {
                                         </Fragment>
                                         : null
                                 }
-
                             </Fragment>
                             : null
                     }

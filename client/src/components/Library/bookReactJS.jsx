@@ -122,6 +122,5 @@ class BookReactJS extends Component {
             </div>
         )
     }
-
 }
 export default BookReactJS;

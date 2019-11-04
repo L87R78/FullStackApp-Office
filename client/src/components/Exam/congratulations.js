@@ -116,6 +116,5 @@ class Congratulations extends Component {
             </div>
         )
     }
-
 }
 export default Congratulations;
