@@ -5,6 +5,7 @@ import MyAnswers from './myAnswers';
 import BookJS from './bookJS';
 import BookReactJS from './bookReactJS';
 import BookCSS from './bookCSS';
+import axios from 'axios';
 
 class HomeLybrary extends Component {
     state = {
@@ -19,7 +20,8 @@ class HomeLybrary extends Component {
         booksJS: 'hide',
         booksReactJS: 'hide',
         booksCSS: 'hide',
-        notificationChoiceBook: 'hide'
+        notificationChoiceBook: 'hide',
+        allUsers: []
     }
     handleCurChoice = (e) => {
         if (e === 'javascript') {
@@ -57,6 +59,15 @@ class HomeLybrary extends Component {
         }, 4000)
     }
     componentDidMount() {
+        axios.get('https://fullstack-app-office.herokuapp.com/users')
+        .then(res => {
+            this.setState({
+                allUsers: res.data
+            })
+        })
+        .then(err => console.log(err))
+
+        
 
         setTimeout(() => {
             this.setState({
@@ -71,6 +82,8 @@ class HomeLybrary extends Component {
                 notificationChoiceBook: 'show',
             })
         }, 3000)
+
+
     }
     handleCloseMenu = (e) => {
         if (e === 'show') {
@@ -90,7 +103,15 @@ class HomeLybrary extends Component {
         let left_side_door = 'left_side_door';
         let right_side_door = 'right_side_door';
 
-        let { leftDoor, rightDoor, controller, freezeController, openSliderMenu, notificationController, currentChoice, booksJS, booksReactJS, booksCSS, notificationChoiceBook } = this.state;
+        let { leftDoor, rightDoor, controller, freezeController, openSliderMenu, notificationController, currentChoice, booksJS, booksReactJS, booksCSS, notificationChoiceBook, allUsers } = this.state;
+
+        let currentUser = '';
+        allUsers.map(el => {
+            if(el.username === localStorage.getItem('currentUser')){
+                currentUser = el
+            }
+        })
+        //console.log(currentUser)
         return (
             <div className="library_home">
                 <div className={left_side_door + ' ' + leftDoor}>
@@ -115,17 +136,17 @@ class HomeLybrary extends Component {
                             }
                             {
                                 booksJS === 'show'
-                                    ? < BookJS openSliderMenu={openSliderMenu} />
+                                    ? < BookJS openSliderMenu={openSliderMenu} currentUser={currentUser} />
                                     : null
                             }
                             {
                                 booksReactJS === 'show'
-                                    ? < BookReactJS openSliderMenu={openSliderMenu} />
+                                    ? < BookReactJS openSliderMenu={openSliderMenu} currentUser={currentUser} />
                                     : null
                             }
                             {
                                 booksCSS === 'show'
-                                    ? < BookCSS openSliderMenu={openSliderMenu} />
+                                    ? < BookCSS openSliderMenu={openSliderMenu} currentUser={currentUser} />
                                     : null
                             }
 

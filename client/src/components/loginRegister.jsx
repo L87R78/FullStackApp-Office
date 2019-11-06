@@ -87,19 +87,20 @@ class LoginRegister extends Component {
     }
 
     register = () => {
+        let { allUsers, user, password } = this.state;
         this.setState({
             clickedRegister: true,
             showHideErrMessage: 'show'
         })
         localStorage.clear();
         let checkUser = false;
-        this.state.allUsers.map(el => {
-            if (el.username === this.state.user) {
+        allUsers.map(el => {
+            if (el.username === user) {
                 checkUser = true
             }
         })
         if (checkUser === false) {
-            if (this.state.user === '' || this.state.password === '') {
+            if (user === '' || password === '') {
                 this.setState({
                     errorRegisterUser: 'You must fill in all of the fields!'
                 })
@@ -118,7 +119,6 @@ class LoginRegister extends Component {
                     money: 100,
                     myOrders: [],
                 }
-              
                 localStorage.setItem('currentUser', this.state.user);
                 axios.post('https://fullstack-app-office.herokuapp.com/users/add', user)
                     .then(res => {

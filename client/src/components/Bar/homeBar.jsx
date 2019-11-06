@@ -117,7 +117,7 @@ class HomeBar extends Component {
                 drinkLemonade: '',
                 hideDrinkBox: 'hide',
             })
-        }, 4000)
+        }, 3000)
     }
 
     render() {

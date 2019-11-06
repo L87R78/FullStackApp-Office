@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class BookReactJS extends Component {
     state = {
-        showAddPrice: 'hide'
+        showAddPrice: 'hide',
+        clickedContent: false
+    }
+    clickedSomeContent = () => {
+        this.setState({
+            clickedContent: true
+        })
     }
     handlerReadContent_01 = (e) => {
+        this.clickedSomeContent();
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
@@ -15,6 +23,7 @@ class BookReactJS extends Component {
 
     }
     handlerReadContent_02 = () => {
+        this.clickedSomeContent();
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
@@ -23,6 +32,7 @@ class BookReactJS extends Component {
         }, 1200)
     }
     handlerReadContent_03 = () => {
+        this.clickedSomeContent();
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
@@ -31,6 +41,7 @@ class BookReactJS extends Component {
         }, 1200)
     }
     handlerReadContent_04 = () => {
+        this.clickedSomeContent();
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
@@ -39,6 +50,7 @@ class BookReactJS extends Component {
         }, 1200)
     }
     handlerReadContent_05 = () => {
+        this.clickedSomeContent();
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
@@ -47,6 +59,7 @@ class BookReactJS extends Component {
         }, 1200)
     }
     handlerReadContent_06 = () => {
+        this.clickedSomeContent();
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
@@ -55,6 +68,7 @@ class BookReactJS extends Component {
         }, 1200)
     }
     handlerReadContent_07 = () => {
+        this.clickedSomeContent();
         this.showNotificationAddPrice();
         setTimeout(() => {
             window.open(
@@ -73,6 +87,20 @@ class BookReactJS extends Component {
                 showAddPrice: 'hide',
             })
         }, 1200)
+    }
+    componentDidUpdate() {
+        let { currentUser } = this.props;
+        let { clickedContent } = this.state;
+        if (clickedContent) {
+            currentUser.money += 15
+            axios.post(`https://fullstack-app-office.herokuapp.com/users/update/${currentUser._id}`, currentUser)
+                .then(res => {
+                })
+                .catch(err => console.log(err))
+            this.setState({
+                clickedContent: false
+            })
+        }
     }
     render() {
         let { openSliderMenu } = this.props;
@@ -108,12 +136,10 @@ class BookReactJS extends Component {
                 <div className="list_boxes">
                     <span>5.</span>
                     <Link to="#" onClick={this.handlerReadContent_05}>Presentational vs container components</Link>
-
                 </div>
                 <div className="list_boxes">
                     <span>6.</span>
                     <Link to="#" onClick={this.handlerReadContent_06}>Lifecycle Events</Link>
-
                 </div>
                 <div className="list_boxes">
                     <span>7.</span>
